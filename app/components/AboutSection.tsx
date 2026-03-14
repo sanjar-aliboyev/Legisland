@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { ArrowRight, Target, Zap, FileCheck } from 'lucide-react';
+import { ArrowRight, Clock, Award, Trophy } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import Link from 'next/link';
 
@@ -15,9 +15,9 @@ export default function AboutSection() {
       mainText: "Biz yuridik sohada shunchaki xizmatlar yoki hujjatlar emas, balki to'liq xotirjamlik taqdim etishga harakat qilamiz. Muammoga duch kelgan mijozlarga eng optimal yechim topilishida maksimal darajada ko'maklashamiz. Mijozlarimiz muammosini o'zimiznikidek ko'rgan holda harakat qilamiz.",
       btnText: "Kompaniya haqida to'liq",
       cards: [
-        { title: "Tor Ixtisoslashuv", desc: "Biz hamma ishni qilmaymiz. Biz faqat Fuqarolik va Iqtisodiy huquqni mukammal bilamiz.", icon: <Target size={28} /> },
-        { title: "Tezkorlik (Agility)", desc: "Biz byurokratiya tezligida emas, biznes tezligida harakat qilamiz.", icon: <Zap size={28} /> },
-        { title: "Aniqlik", desc: "Murakkab yuridik atamalar emas, aniq va tushunarli strategiya.", icon: <FileCheck size={28} /> }
+        { title: "Mavjudlik", desc: "Bizning jamoamiz kuniga 24 soat, haftada 7 kun yuridik xizmatlar ko'rsatadi. Biz har doim sizni tinglashga va yordam berishga tayyormiz, hamma narsani tushunarli tarzda tushuntiramiz, shuningdek mazali qahva bilan mehmon qilamiz.", icon: <Clock size={28} /> },
+        { title: "Professionallik", desc: "Biz — kuchli tajribaga va mustahkam tamoyillarga ega professional yuristlar va advokatlar jamoasimiz.", icon: <Award size={28} /> },
+        { title: "Yetakchilik", desc: "Bizning kompaniyamiz ishni yarim yo'lda tashlashni yoki chekinishni bilmaydi. Biz faqat g'alaba qozonishni bilamiz. Bunga o'zingiz ishonch hosil qiling. Muvaffaqiyatli ishlarimiz ro'yxati va ijobiy sharhlar o'zlari uchun gapiradi.", icon: <Trophy size={28} /> }
       ]
     },
     RU: {
@@ -25,9 +25,9 @@ export default function AboutSection() {
       mainText: "Мы не просто предоставляем услуги или документы, мы стремимся подарить полное спокойствие. Мы максимально помогаем найти оптимальное решение для клиентов, столкнувшихся с проблемами. Мы относимся к проблемам наших клиентов как к своим собственным.",
       btnText: "О компании",
       cards: [
-        { title: "Узкая Специализация", desc: "Мы не делаем всё подряд. Мы в совершенстве знаем Гражданское и Экономическое право.", icon: <Target size={28} /> },
-        { title: "Скорость (Agility)", desc: "Мы работаем не со скоростью бюрократии, а со скоростью бизнеса.", icon: <Zap size={28} /> },
-        { title: "Точность", desc: "Никаких сложных юридических терминов, только четкая и понятная стратегия.", icon: <FileCheck size={28} /> }
+        { title: "Доступность", desc: "Наша команда предоставляет юридические услуги 24 часа в сутки 7 дней в неделю. Мы всегда готовы выслушать вас и помочь, доступно все объяснив, а еще угостим вкусным кофе.", icon: <Clock size={28} /> },
+        { title: "Профессионализм", desc: "Мы — команда профессиональных юристов и адвокатов с внушительным послужным списком и железными принципами.", icon: <Award size={28} /> },
+        { title: "Лидерство", desc: "Наша компания не умеет бросать дело на полпути или отступать. Мы можем только побеждать. Убедитесь в этом сами. Список наших успешных дел и положительные отзывы говорят сами за себя.", icon: <Trophy size={28} /> }
       ]
     },
     EN: {
@@ -35,9 +35,9 @@ export default function AboutSection() {
       mainText: "We strive to provide not just services or documents, but complete peace of mind. We assist clients in finding the optimal solution to their problems. We treat our clients' problems as our own.",
       btnText: "About Company",
       cards: [
-        { title: "Niche Specialization", desc: "We don't do everything. We have mastered Civil and Economic law perfectly.", icon: <Target size={28} /> },
-        { title: "Agility", desc: "We don't move at the speed of bureaucracy, we move at the speed of business.", icon: <Zap size={28} /> },
-        { title: "Clarity", desc: "No complex legal jargon, just clear and understandable strategy.", icon: <FileCheck size={28} /> }
+        { title: "Availability", desc: "Our team provides legal services 24 hours a day, 7 days a week. We are always ready to listen and help, explaining everything clearly, and we'll even treat you to a delicious coffee.", icon: <Clock size={28} /> },
+        { title: "Professionalism", desc: "We are a team of professional lawyers and attorneys with an impressive track record and firm principles.", icon: <Award size={28} /> },
+        { title: "Leadership", desc: "Our company never abandons a case halfway or retreats. We only know how to win. See for yourself. Our list of successful cases and positive reviews speak for themselves.", icon: <Trophy size={28} /> }
       ]
     }
   };
