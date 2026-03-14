@@ -12,37 +12,101 @@ import { useLanguage } from '../context/LanguageContext';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
 
-// --- DATA: HERO SUCCESS STORIES ---
-// In a real app, move these strings to your translations.ts file.
-const HERO_CASES = [
-  {
-    id: 0,
-    category: "INTELLECTUAL PROPERTY",
-    title: "Protecting Global Retail Giants",
-    result: "Seized 50,000+ counterfeit goods & secured market exclusivity.",
-    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1600",
-    link: "/amaliyot"
+// --- DATA: HERO SUCCESS STORIES (Multilingual) ---
+const HERO_CASES_DATA = {
+  EN: {
+    readCase: "Read Case Study",
+    cases: [
+      {
+        id: 0,
+        category: "INTELLECTUAL PROPERTY",
+        title: "Protecting Global Retail Giants",
+        result: "Seized 50,000+ counterfeit goods & secured market exclusivity.",
+        image: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1600",
+        link: "/amaliyot"
+      },
+      {
+        id: 1,
+        category: "M&A & INVESTMENT",
+        title: "Restoring Investor Rights",
+        result: "Recovered 40% equity share for a foreign investor in local court.",
+        image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1600",
+        link: "/amaliyot"
+      },
+      {
+        id: 2,
+        category: "TAX LITIGATION",
+        title: "$500k Industrial Tax Dispute",
+        result: "Reversed an unlawful VAT penalty for a leading textile exporter.",
+        image: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&q=80&w=1600",
+        link: "/amaliyot"
+      }
+    ]
   },
-  {
-    id: 1,
-    category: "TAX LITIGATION",
-    title: "$500k Industrial Tax Dispute",
-    result: "Reversed an unlawful VAT penalty for a leading textile exporter.",
-    image: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&q=80&w=1600",
-    link: "/amaliyot"
+  RU: {
+    readCase: "Читать кейс",
+    cases: [
+      {
+        id: 0,
+        category: "ИНТЕЛЛЕКТУАЛЬНАЯ СОБСТВЕННОСТЬ",
+        title: "Защита мировых гигантов розничной торговли",
+        result: "Изъято более 50 000 контрафактных товаров и обеспечена эксклюзивность на рынке.",
+        image: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1600",
+        link: "/amaliyot"
+      },
+      {
+        id: 1,
+        category: "СЛИЯНИЯ И ПОГЛОЩЕНИЯ И ИНВЕСТИЦИИ",
+        title: "Восстановление прав инвесторов",
+        result: "В местном суде возвращена доля в 40% акций для иностранного инвестора.",
+        image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1600",
+        link: "/amaliyot"
+      },
+      {
+        id: 2,
+        category: "НАЛОГОВЫЕ СПОРЫ",
+        title: "Промышленный налоговый спор на $500 тыс.",
+        result: "Отменен незаконный штраф по НДС для ведущего экспортера текстиля.",
+        image: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&q=80&w=1600",
+        link: "/amaliyot"
+      }
+    ]
   },
-  {
-    id: 2,
-    category: "M&A & INVESTMENT",
-    title: "Restoring Investor Rights",
-    result: "Recovered 40% equity share for a foreign investor in local court.",
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1600",
-    link: "/amaliyot"
+  UZ: {
+    readCase: "Keysni o'qish",
+    cases: [
+      {
+        id: 0,
+        category: "INTELLEKTUAL MULK",
+        title: "Jahon chakana savdo gigantlarini himoya qilish",
+        result: "50 000 dan ortiq qalbaki mahsulotlar musodara qilindi va bozordagi eksklyuzivlik ta'minlandi.",
+        image: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1600",
+        link: "/amaliyot"
+      },
+      {
+        id: 1,
+        category: "M&A VA INVESTITSIYALAR",
+        title: "Investor huquqlari tiklandi",
+        result: "Iqtisodiy sudda xorijiy investor uchun ustav kapitalidagi 40% ulush qaytarildi.",
+        image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1600",
+        link: "/amaliyot"
+      },
+      {
+        id: 2,
+        category: "SOLIQ NIZOLARI",
+        title: "$500 minglik sanoat soliq nizosi",
+        result: "Bozordagi yetakchi tekstil eksportchisi uchun noqonuniy QQS bekor qilindi.",
+        image: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&q=80&w=1600",
+        link: "/amaliyot"
+      }
+    ]
   }
-];
+};
 
 export default function PracticeSlider() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
+  const heroData = HERO_CASES_DATA[lang as keyof typeof HERO_CASES_DATA] || HERO_CASES_DATA['UZ'];
+  const HERO_CASES = heroData.cases;
   const [activeIndex, setActiveIndex] = useState(0);
   const swiperRef = useRef<SwiperType | null>(null);
 
@@ -88,7 +152,7 @@ export default function PracticeSlider() {
                 <p className="slide-result">{story.result}</p>
                 
                 <Link href={story.link} className="slide-btn">
-                  Read Case Study <ArrowRight size={18} />
+                  {heroData.readCase} <ArrowRight size={18} />
                 </Link>
               </div>
             </div>
